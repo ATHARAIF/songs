@@ -1,0 +1,125 @@
+/* Reset default margin dan padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Gaya untuk container utama */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Gradien warna romantis */
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; /* Agar bubble tidak keluar dari layar */
+    position: relative;
+    z-index: 1; /* Pastikan container utama berada di atas love section */
+}
+
+/* Gaya untuk judul video */
+.video-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Gaya untuk deskripsi (elemen <p>) */
+p {
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px; /* Jarak antara paragraf dan elemen berikutnya */
+    text-align: center;
+}
+
+/* Gaya khusus untuk p "Cover By Abrarr" */
+p:last-of-type {
+    margin-top: 20px; /* Jarak dari elemen sebelumnya (frame video) */
+    margin-bottom: 0; /* Hilangkan margin bawah agar tidak terlalu renggang */
+}
+
+/* Gaya untuk frame video */
+.video-frame {
+    width: 320px; /* Lebar frame */
+    height: 568.89px; /* Tinggi frame (aspek rasio 9:16) */
+    border: 5px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    /* background-color: #000; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2; /* Pastikan video berada di atas love section */
+}
+
+/* Gaya untuk video */
+.vertical-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Memastikan video mengisi frame tanpa distorsi */
+}
+
+/* Gaya untuk bubble chat */
+.bubble {
+    position: absolute;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    font-size: 1rem;
+    color: #e91e63;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: float 5s ease-in-out infinite;
+    z-index: 3; /* Pastikan bubble chat berada di atas love section */
+}
+
+/* Animasi untuk bubble chat */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px);
+        opacity: 0.5;
+    }
+}
+
+/* Gaya untuk section love yang berjatuhan */
+#love-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Agar love tidak bisa diklik */
+    z-index: 1; /* Pastikan love section berada di bawah container utama */
+    overflow: hidden;
+}
+
+/* Gaya untuk love yang berjatuhan */
+.love {
+    position: absolute;
+    font-size: 2rem;
+    color: #e91e63;
+    animation: fall linear infinite;
+    pointer-events: none; /* Agar love tidak bisa diklik */
+}
+
+/* Animasi untuk love yang berjatuhan */
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
